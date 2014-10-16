@@ -4,15 +4,9 @@
 [submodule "vim-files/vim/bundle/simple-pairs"]
 	path = vim-files/vim/bundle/simple-pairs
 	url = https://github.com/vim-scripts/simple-pairs.git
-[submodule "vim-files/vim/bundle/minibufexpl"]
-	path = vim-files/vim/bundle/minibufexpl
-	url = https://github.com/fholgado/minibufexpl.vim.git
 [submodule "vim-files/vim/bundle/nerdcommenter"]
 	path = vim-files/vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "vim-files/vim/bundle/rope"]
-	path = vim-files/vim/bundle/rope
-	url = https://github.com/klen/rope-vim.git
 [submodule "vim-files/vim/bundle/syntastic"]
 	path = vim-files/vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
@@ -22,9 +16,3 @@
 [submodule "vim-files/vim/bundle/fugitive"]
 	path = vim-files/vim/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "vim-files/vim/bundle/jedi-vim"]
-	path = vim-files/vim/bundle/jedi-vim
-	url = https://github.com/davidhalter/jedi-vim.git
-[submodule "vim-files/vim/bundle/Command-T"]
-	path = vim-files/vim/bundle/Command-T
-	url = https://github.com/wincent/Command-T
