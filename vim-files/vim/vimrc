@@ -1,14 +1,27 @@
 " ========== Vim Basic Settings ============="
 
-" Pathogen settings.
+" Vundle settings.
+set nocompatible
 filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#infect()
-Helptags
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'fatih/vim-go'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-fugitive'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'szw/vim-maximizer'
+Plugin 'kchmck/vim-coffee-script' 
+
+call vundle#end()
 filetype plugin indent on
 
 " Make vim incompatbile to vi.
-set nocompatible
 set modelines=0
 
 "TAB settings.
@@ -182,7 +195,7 @@ if has("gui_running")
     set guioptions-=L
     set guioptions+=a
     set guioptions-=m
-    colo badwolf
+    color badwolf
     set listchars=tab:▸\ ,eol:¬         " Invisibles using the Textmate style
 else
     set t_Co=256
