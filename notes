@@ -1,0 +1,4 @@
+quando sei su un file coffescript, e vuoi usare il linter per vedere gli errori "CoffeeLint | vertical cwindow"
+
+update all plugin installed as submodules
+git submodule foreach git pull origin master
