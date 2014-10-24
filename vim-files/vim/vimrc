@@ -17,6 +17,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'szw/vim-maximizer'
 Plugin 'kchmck/vim-coffee-script' 
+Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 filetype plugin indent on
@@ -201,6 +202,10 @@ else
     set t_Co=256
     colorschem badwolf
     "colorschem torte
+    syntax enable
+    set background=dark
+    let g:solarized_termcolors=256
+    colorscheme solarized
 endif
 
 " Special Settings for Consoles
