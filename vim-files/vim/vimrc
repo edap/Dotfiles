@@ -63,6 +63,9 @@ set shell=/bin/bash
 set lazyredraw
 set matchtime=3
 
+" save a file when it loose focus
+au FocusLost * :wa
+
 "Changing Leader Key
 let mapleader = ","
 """"
