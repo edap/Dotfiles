@@ -32,9 +32,9 @@ set softtabstop=2
 set expandtab
 
 " Vim-maximer
-nnoremap <silent><F3> :MaximizerToggle<CR>
-vnoremap <silent><F3> :MaximizerToggle<CR>gv
-inoremap <silent><F3> <C-o>:MaximizerToggle<CR>
+nnoremap <silent><F2> :MaximizerToggle<CR>
+vnoremap <silent><F2> :MaximizerToggle<CR>gv
+inoremap <silent><F2> <C-o>:MaximizerToggle<CR>
 
 " More Common Settings.
 set encoding=utf-8
