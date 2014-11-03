@@ -19,6 +19,7 @@ Plugin 'szw/vim-maximizer'
 Plugin 'kchmck/vim-coffee-script' 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
+Plugin 'thoughtbot/vim-rspec'
 
 call vundle#end()
 filetype plugin indent on
@@ -37,6 +38,12 @@ nnoremap <silent><F2> :MaximizerToggle<CR>
 vnoremap <silent><F2> :MaximizerToggle<CR>gv
 inoremap <silent><F2> <C-o>:MaximizerToggle<CR>
 
+" Rspec vim
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
 " More Common Settings.
 set encoding=utf-8
 set scrolloff=3
@@ -47,6 +54,8 @@ set hidden
 set wildmenu
 set wildmode=list:longest
 set visualbell
+" clipboard only works if you have installed vim-gnome instead of vim
+set clipboard=unnamedplus
 syntax on
 
 "set cursorline
