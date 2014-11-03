@@ -2,3 +2,47 @@ quando sei su un file coffescript, e vuoi usare il linter per vedere gli errori 
 
 update all plugin installed as submodules
 git submodule foreach git pull origin master
+
+muoversi
+FINDING CHARS(only on the current line, only for one char)
+http://walking-without-crutches.herokuapp.com/#105
+con ";" si va avanti di una parola
+con "fs" vai alla prossima occorrenza di a
+con ";" ripeto il comando eseguito precendentemente, quindi
+vado avanti alla prossima occorrenza di a
+con "," torno all'occorrenza precedente di a
+
+#MOVING
+w vado all'inizio della prossima parola
+e vado alla fine della prossima parola
+b vado all'inizio della precedente parola
+ge vado alla fine della fine della precedente parola
+0 vado a inizio linea
+^ vado a inizio primo non-blank char nella linea
+$ vado a fine linea
+
+#EDITINGG
+I insert at the beginning of line
+A Append at the end of the line
+O new line above the current line
+J join current line with line below
+c$ replave to end of line
+cc replace entire line
+. repeat last command
+
+cancellare all'interno di un tag
+in normal mode, digita dit
+<head>cancellami</head> (DeleteInTag)
+
+modificare all'interno di un tag
+digita "cit" in normal mode (ChangeInTag)
+<head>modificami</head>
+
+#VISUAL MODE
+ctrl+v sart visual blockmode
+V visual mode sulla linea
+dopo essere entrati in visual mode:
+  ab - a () block (with braces)
+  aB - a {} block (with brackets)
+  ib - inner () block
+  iB - inner {} block
