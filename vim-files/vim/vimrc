@@ -19,6 +19,7 @@ Plugin 'szw/vim-maximizer'
 Plugin 'kchmck/vim-coffee-script' 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
+Plugin 'vim-scripts/YankRing.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -36,6 +37,13 @@ set expandtab
 nnoremap <silent><F2> :MaximizerToggle<CR>
 vnoremap <silent><F2> :MaximizerToggle<CR>gv
 inoremap <silent><F2> <C-o>:MaximizerToggle<CR>
+
+" YankRing.vim plugin
+" YRShow
+" YRSearch
+" CTRL p itera avanti tra gli elementi nella clipboard
+" CTRL P itera indietro tra gli elemeti nella clipboard
+" http://cookieshq.co.uk/posts/yank-ring-a-super-easy-vim-yank-register/
 
 " More Common Settings.
 set encoding=utf-8
