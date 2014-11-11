@@ -1,11 +1,10 @@
-" ========== Vim Basic Settings ============="
+" Vim Common Settings
 
-" Vundle settings.
 set nocompatible
+" Vundle settings.
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
 Plugin 'gmarik/Vundle.vim'
 Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
@@ -20,7 +19,7 @@ Plugin 'szw/vim-maximizer'
 Plugin 'kchmck/vim-coffee-script' 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
-
+Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()
 
 "Plugin 'kien/ctrlp.vim'
@@ -29,13 +28,20 @@ filetype plugin indent on
 " Make vim incompatbile to vi.
 set modelines=0
 
-
 " Unite
-nnoremap <C-p> :Unite file_rec/async<cr>
-nnoremap <space>/ :Unite grep:.<cr>
+" http://bling.github.io/blog/2013/06/02/unite-dot-vim-the-plugin-you-didnt-know-you-need/
+nnoremap <C-p> :Unite -start-insert -buffer-name=files file_rec/async<cr>
+nnoremap <space>/ :Unite -winheight=10 grep:.<cr>
 let g:unite_source_history_yank_enable = 1
 nnoremap <space>y :Unite history/yank<cr>
 nnoremap <space>s :Unite -quick-match buffer<cr>
+
+" vim multiple cursors plugin
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
 
 "TAB settings.
 set tabstop=2
