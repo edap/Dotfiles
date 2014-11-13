@@ -1,8 +1,5 @@
 quando sei su un file coffescript, e vuoi usare il linter per vedere gli errori "CoffeeLint | vertical cwindow"
 
-update all plugin installed as submodules
-git submodule foreach git pull origin master
-
 muoversi
 FINDING CHARS(only on the current line, only for one char)
 http://walking-without-crutches.herokuapp.com/#105
@@ -53,3 +50,12 @@ dopo essere entrati in visual mode:
   aB - a {} block (with brackets)
   ib - inner () block
   iB - inner {} block
+
+#unite .vim
+ctrl p, cerca, puoi usare anche l'operatore *
+spazio /, come Ack search
+spazio s, switch tra i buffer aperti
+
+#multiple cursor
+ctrl n
+ctrl p
