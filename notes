@@ -1,12 +1,8 @@
 quando sei su un file coffescript, e vuoi usare il linter per vedere gli errori "CoffeeLint | vertical cwindow"
 
-update all plugin installed as submodules
-git submodule foreach git pull origin master
-
 muoversi
 FINDING CHARS(only on the current line, only for one char)
 http://walking-without-crutches.herokuapp.com/#105
-con ";" si va avanti di una parola
 con "fs" vai alla prossima occorrenza di a
 con ";" ripeto il comando eseguito precendentemente, quindi
 vado avanti alla prossima occorrenza di a
@@ -20,6 +16,11 @@ ge vado alla fine della fine della precedente parola
 0 vado a inizio linea
 ^ vado a inizio primo non-blank char nella linea
 $ vado a fine linea
+puoi muovwerti tra le windows usando hjkl
+crtl w h
+crtl w j
+crtl w k
+crtl w l
 
 #EDITINGG
 I insert at the beginning of line
@@ -34,6 +35,9 @@ cancellare all'interno di un tag
 in normal mode, digita dit
 <head>cancellami</head> (DeleteInTag)
 
+ihttps://github.com/joker-777/dotvim/blob/master/bundle/yankring/doc/yankring.txt
+crlp p per sostituire la parola appena insollcata con una delle parole che hai nella history
+
 modificare all'interno di un tag
 digita "cit" in normal mode (ChangeInTag)
 <head>modificami</head>
@@ -46,3 +50,12 @@ dopo essere entrati in visual mode:
   aB - a {} block (with brackets)
   ib - inner () block
   iB - inner {} block
+
+#unite .vim
+ctrl p, cerca, puoi usare anche l'operatore *
+spazio /, come Ack search
+spazio s, switch tra i buffer aperti
+
+#multiple cursor
+ctrl n
+ctrl p

@@ -1,0 +1,2 @@
+eval "$($HOME/ggs/bin/ggs init -)"
+export CHROME_BIN=/usr/bin/chromium-browser

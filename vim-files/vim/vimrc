@@ -1,17 +1,17 @@
-" ========== Vim Basic Settings ============="
+" Vim Common Settings
 
-" Vundle settings.
 set nocompatible
+" Vundle settings.
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
 Plugin 'gmarik/Vundle.vim'
 Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-fugitive'
+Plugin 'Shougo/vimproc.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-commentary'
@@ -21,8 +21,10 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'thoughtbot/vim-rspec'
-
+Plugin 'tpope/vim-surround'
+Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()
+
 filetype plugin indent on
 
 " Make vim incompatbile to vi.
@@ -33,17 +35,6 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-
-" Vim-maximer
-nnoremap <silent><F2> :MaximizerToggle<CR>
-vnoremap <silent><F2> :MaximizerToggle<CR>gv
-inoremap <silent><F2> <C-o>:MaximizerToggle<CR>
-
-" Rspec vim
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
 
 " More Common Settings.
 set encoding=utf-8
@@ -129,8 +120,6 @@ nnoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
-" Rope settings."
-inoremap <leader>j <ESC>:RopeGotoDefinition<cr>
 
 " Get Rid of stupid Goddamned help keys
 inoremap <F1> <ESC>
@@ -234,14 +223,32 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
+
+" Airline fonts
+let g:airline_powerline_fonts=1
+
 " Tab color settings to make it more visible.
 hi MBEChanged ctermfg=white
 hi MBENormal ctermfg=white
 
-" Rope Plugin settings
-" imap <leader>j <ESC>:RopeGotoDefinition<cr>
-nmap <leader>j <ESC>:RopeGotoDefinition<cr>
+" vim multiple cursors plugin
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
 
 " Tagbar key bindings."
 nmap <leader>l <ESC>:TagbarToggle<cr>
 imap <leader>l <ESC>:TagbarToggle<cr>i
+
+" Vim-maximer
+nnoremap <silent><F2> :MaximizerToggle<CR>
+vnoremap <silent><F2> :MaximizerToggle<CR>gv
+inoremap <silent><F2> <C-o>:MaximizerToggle<CR>
+
+" Rspec vim
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
