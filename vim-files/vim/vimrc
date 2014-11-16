@@ -241,6 +241,7 @@ nmap <leader>l <ESC>:TagbarToggle<cr>
 imap <leader>l <ESC>:TagbarToggle<cr>i
 
 " Vim-maximer
+let g:maximizer_default_mapping_key = '<F2>'
 nnoremap <silent><F2> :MaximizerToggle<CR>
 vnoremap <silent><F2> :MaximizerToggle<CR>gv
 inoremap <silent><F2> <C-o>:MaximizerToggle<CR>

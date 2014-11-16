@@ -16,6 +16,7 @@ ge vado alla fine della fine della precedente parola
 0 vado a inizio linea
 ^ vado a inizio primo non-blank char nella linea
 $ vado a fine linea
+
 puoi muovwerti tra le windows usando hjkl
 crtl w h
 crtl w j
@@ -51,10 +52,6 @@ dopo essere entrati in visual mode:
   ib - inner () block
   iB - inner {} block
 
-#unite .vim
-ctrl p, cerca, puoi usare anche l'operatore *
-spazio /, come Ack search
-spazio s, switch tra i buffer aperti
 
 #multiple cursor
 ctrl n
