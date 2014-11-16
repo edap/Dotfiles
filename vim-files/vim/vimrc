@@ -15,6 +15,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
 Plugin 'szw/vim-maximizer'
 Plugin 'kchmck/vim-coffee-script' 
 Plugin 'altercation/vim-colors-solarized'
@@ -54,8 +55,6 @@ set hidden
 set wildmenu
 set wildmode=list:longest
 set visualbell
-" clipboard only works if you have installed vim-gnome instead of vim
-set clipboard=unnamedplus
 syntax on
 
 "set cursorline
@@ -69,7 +68,7 @@ set number
 set norelativenumber
 
 "set undofile
-set shell=/bin/bash
+set shell=/bin/zsh
 set lazyredraw
 set matchtime=3
 
@@ -221,15 +220,6 @@ else
     colorscheme solarized
 endif
 
-" Special Settings for Consoles
-"if !has("gui_running")
-"    set t_Co=256
-"    colorschem badwolf
-"endif
-
-" Source the vimrc file after saving it
-"autocmd bufwritepost .vimrc source ~/.vimrc
-
 " ========== END Gvim Settings ==========
 
 
@@ -255,12 +245,3 @@ nmap <leader>j <ESC>:RopeGotoDefinition<cr>
 " Tagbar key bindings."
 nmap <leader>l <ESC>:TagbarToggle<cr>
 imap <leader>l <ESC>:TagbarToggle<cr>i
-
-" Snipmate remap settings. It's binding overwritten standard
-" bindings.
-" Snipmate using bellow VIM's default keys, just unmap it.
-" autocmd VimEnter * unmap! <C-i>
-
-
-" =========== END Plugin Settings =========="
-"
