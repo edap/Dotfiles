@@ -71,6 +71,7 @@ export BUNDLER_EDITOR=vim
 # Customize to your needs...
 export PATH="$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/local/bin:$PATH"
 export GOPATH=$HOME/go
+export VIMRC=$HOME/Dotfiles/vim-files/vim/vimrc
 eval "$(rbenv init -)"
 
 # ruby hakc improvement, tracker

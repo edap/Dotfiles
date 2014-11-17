@@ -34,6 +34,12 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
+"backup settings
+set backupdir=~/.vimtmp/,.
+set directory=~/.vimtmp/,.
+set nobackup
+set noswapfile
+
 " More Common Settings.
 set encoding=utf-8
 set scrolloff=3
@@ -228,6 +234,18 @@ let g:airline_powerline_fonts=1
 " Tab color settings to make it more visible.
 hi MBEChanged ctermfg=white
 hi MBENormal ctermfg=white
+
+"vim-commentary
+set commentstring=//\ %s
+autocmd FileType asm set commentstring=;\ %s
+autocmd BufNewFile,BufRead *.hamlc setf haml
+autocmd FileType coffee set commentstring=#\ %s
+autocmd FileType css set commentstring=//\ %s
+autocmd FileType ruby set commentstring=#\ %s
+autocmd FileType scss.css set commentstring=//\ %s
+autocmd FileType sh set commentstring=#\ %s
+autocmd FileType vim set commentstring=\"\ %s
+autocmd FileType haml set commentstring=#\ -#
 
 " vim multiple cursors plugin
 let g:multi_cursor_use_default_mapping=0
