@@ -23,17 +23,21 @@ crtl w j
 crtl w k
 crtl w l
 
+con * cerchi la prossima occorrenza della parola sotto il cursore, con # quella precedente
+
 #EDITINGG
 I insert at the beginning of line
+
 A Append at the end of the line
 O new line above the current line
+
 J join current line with line below
 c$ replave to end of line
 cc replace entire line
 . repeat last command
 
 cancellare all'interno di un tag
-in normal mode, digita dit
+  in normal mode, digita dit
 <head>cancellami</head> (DeleteInTag)
 
 ihttps://github.com/joker-777/dotvim/blob/master/bundle/yankring/doc/yankring.txt
