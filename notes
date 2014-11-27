@@ -27,25 +27,29 @@ con * cerchi la prossima occorrenza della parola sotto il cursore, con # quella 
 
 #EDITINGG
 I insert at the beginning of line
-
 A Append at the end of the line
 O new line above the current line
-
 J join current line with line below
-c$ replave to end of line
-cc replace entire line
 . repeat last command
+
+c$ replace to end of line
+y$ : copy from the current cursor to the end of line
+cc replace entire line
+ct; : change the content of the line from the current cursor position until the ';'
+cf; : change the content of the line from the current cursor position including the ';'
 
 cancellare all'interno di un tag
   in normal mode, digita dit
 <head>cancellami</head> (DeleteInTag)
 
-ihttps://github.com/joker-777/dotvim/blob/master/bundle/yankring/doc/yankring.txt
+https://github.com/joker-777/dotvim/blob/master/bundle/yankring/doc/yankring.txt
 crlp p per sostituire la parola appena insollcata con una delle parole che hai nella history
 
 modificare all'interno di un tag
 digita "cit" in normal mode (ChangeInTag)
 <head>modificami</head>
+da) : delete everything inside the parentheses, including the parens
+ci] : change the text within the square brackets while leaving the square brackets in place
 
 #VISUAL MODE
 ctrl+v sart visual blockmode
