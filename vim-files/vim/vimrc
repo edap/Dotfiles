@@ -15,6 +15,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'szw/vim-maximizer'
 Plugin 'kchmck/vim-coffee-script' 
 Plugin 'altercation/vim-colors-solarized'
@@ -222,7 +223,8 @@ else
     colorschem badwolf
     "colorschem torte
     syntax enable
-    set background=dark
+    "set background=dark
+    set background=light
     let g:solarized_termcolors=256
     colorscheme solarized
 endif
@@ -277,6 +279,16 @@ nnoremap <silent><F2> :MaximizerToggle<CR>
 vnoremap <silent><F2> :MaximizerToggle<CR>gv
 inoremap <silent><F2> <C-o>:MaximizerToggle<CR>
 
+"Vim-go
+au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+let g:go_bin_path = expand("~/.gotools")
+let g:go_bin_path = "~/go/bin" 
 " Rspec vim
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
