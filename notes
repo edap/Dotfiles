@@ -51,14 +51,31 @@ digita "cit" in normal mode (ChangeInTag)
 da) : delete everything inside the parentheses, including the parens
 ci] : change the text within the square brackets while leaving the square brackets in place
 
+sempre utilizzando i text object, w for word, s per sentence and p per paragraph, posso cancellare qua e la
+dw, ds, dp
+diw, delete inner words, comod se vuoi cancellare una parola racchiusa in qualcosa
+dib, delete inner() blocks
+dab, delete a () block
+diB, delete inner{} blocks
+daB, delete a {} block
+
 #VISUAL MODE
 ctrl+v sart visual blockmode
 V visual mode sulla linea
 dopo essere entrati in visual mode:
-  ab - a () block (with braces)
-  aB - a {} block (with brackets)
-  ib - inner () block
-  iB - inner {} block
+
+
+#livesslo successivo, text object e word object. :help motion.txt e' una miniera di informazioni
+in visual mode:
+iw seleziona la parola dove hai il cursore (inner word)
+as selezione "a sentence" (testo ceh finisce con puntom, punti esclamativi ecc ...)
+ap seleziona un paragragfo (testo che finisce con una linea bianco)
+insomma, w, p e s sono i soggetti, i signica inner, e a significa "un".
+Sempre in visual mode, puoi selezionare blocchi contenuti in [], {},  ()
+se utilizzi a el parentesi sono incluse, se usi i le parentesi sono escluse
+quindi a[, i[, i{ ecc...
+a", i", a' fanno cose che si possono dedurre da quanto detto sopra
+
 
 
 #multiple cursor
