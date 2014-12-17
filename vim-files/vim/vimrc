@@ -251,6 +251,9 @@ let g:airline_powerline_fonts=1
 hi MBEChanged ctermfg=white
 hi MBENormal ctermfg=white
 
+"vim-ack
+noremap <Leader>g :Ack <cword><cr>
+
 " vim-commentary
 set commentstring=//\ %s
 autocmd FileType asm set commentstring=;\ %s
