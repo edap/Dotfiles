@@ -60,10 +60,10 @@ alias pbpaste='xclip -selection clipboard -o'
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails git bundler)
+plugins=(ssh-agent rails git bundler)
 
 #java
-export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+#export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
 
 #bundler editor
 export BUNDLER_EDITOR=vim

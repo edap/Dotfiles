@@ -59,6 +59,25 @@ dab, delete a () block
 diB, delete inner{} blocks
 daB, delete a {} block
 
+anche il pugin surround.vim usa i test objects
+per esempio, per aggiungere le parentesi alla parola casa
+pasta posizionare il cursore sulla parola  casa , e digitare
+ysiw(
+otterrai ( casa )
+PS.
+y sta per yank, credo
+s sta per sorround
+iw per inner word
+
+per cambiare le parantesi, usa change surroud from to, quindi, per esempio
+cs'" change il surround from ' to "
+prova
+'casa'
+otterrai
+"casa"
+
+
+
 #VISUAL MODE
 ctrl+v sart visual blockmode
 V visual mode sulla linea

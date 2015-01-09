@@ -85,7 +85,7 @@ set title
 set dictionary=/usr/share/dict/words
 
 " Make pasting done without any indentation break."
-set pastetoggle=<F3>
+set pastetoggle=<leader><F3>
 
 " Make Vim able to edit corntab fiels again.
 set backupskip=/tmp/*,/private/tmp/*"
@@ -203,6 +203,17 @@ set splitright
 " find git merge conflict
 map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 
+" whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+function! TrimWhiteSpace()
+      %s/\s\+$//e
+endfunction
+autocmd BufWritePre *.js,*.hs,*.go,*.rb :call TrimWhiteSpace()
 
 " =========== END Basic Vim Settings ===========
 
@@ -235,7 +246,7 @@ endif
 
 " ========== Plugin Settings =========="
 " Mapping to NERDTree
-nnoremap <C-n> :NERDTreeToggle<cr>
+nnoremap <C-t> :NERDTreeToggle<cr>
 let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$']
 
 " Mini Buffer some settigns."
@@ -282,6 +293,10 @@ let g:maximizer_default_mapping_key = '<F2>'
 nnoremap <silent><F2> :MaximizerToggle<CR>
 vnoremap <silent><F2> :MaximizerToggle<CR>gv
 inoremap <silent><F2> <C-o>:MaximizerToggle<CR>
+
+" Syntastix
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_javascript_checkers = ['jshint']
 
 " Vim-go
 au FileType go nmap <Leader>s <Plug>(go-implements)
