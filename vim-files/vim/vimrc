@@ -213,7 +213,7 @@ autocmd BufWinLeave * call clearmatches()
 function! TrimWhiteSpace()
       %s/\s\+$//e
 endfunction
-autocmd BufWritePre *.js,*.hs,*.go,*.rb :call TrimWhiteSpace()
+autocmd BufWritePre *.js,*.hs,*.go,*.rb,*.html,*.coffee :call TrimWhiteSpace()
 
 " =========== END Basic Vim Settings ===========
 
