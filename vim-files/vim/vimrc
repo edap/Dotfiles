@@ -14,6 +14,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-ruby/vim-ruby'
@@ -57,6 +58,11 @@ syntax on
 " CTRL-c copy to clipboard
 " http://vim.wikia.com/wiki/Cut/copy_and_paste_using_visual_selection
 map <C-c> "+y<CR>
+
+if has("mac")
+  vmap <C-x> :!pbcopy<CR>  
+  vmap <C-c> :w !pbcopy<CR><CR>
+end
 
 " set cursorline
 set ttyfast
@@ -235,8 +241,8 @@ else
     colorschem badwolf
     "colorschem torte
     syntax enable
-    "set background=dark
-    set background=light
+    set background=dark
+    "set background=light
     let g:solarized_termcolors=256
     colorscheme solarized
 endif
@@ -263,7 +269,11 @@ hi MBEChanged ctermfg=white
 hi MBENormal ctermfg=white
 
 "vim-ack
+" remove ack after 
 noremap <Leader>g :Ack <cword><cr>
+"vim-ag
+set grepprg=ag\ --nogroup\ --nocolor
+nnoremap <Leader>f :Ag <cword><cr>
 
 " vim-commentary
 set commentstring=//\ %s
