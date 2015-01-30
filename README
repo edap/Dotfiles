@@ -1,3 +1,14 @@
-Check my blog for full documentation about VIM and how to setup it up.
+symbolic links
+ln -s ~/Dotfiles/zsh-files/oh-my-zsh/custom/functions.zsh ~/.oh-my-zsh/custom/functions.zshln -s ~/Dotfiles/zsh-files/zshenv ~/.zshenv
+ln -s  ~/Dotfiles/tmux.conf ~/.tmux.conf
+ln -s ~/Dotfiles/jshintrc .jshintrc
+ln -s ~/Dotfiles/zsh-files/zshrc .zshrc
 
-http://haridas.in/vim-as-your-ide.html
+
+To install:
+- oh-my-zsh
+- Vundle has to be installed manually, https://github.com/gmarik/Vundle.vim
+then, in vim :PluginInstalll will do the rest
+- https://github.com/ggreer/the_silver_searcher
+- http://jshint.com/install/
+- Powerline fonts
