@@ -54,10 +54,10 @@ export BUNDLER_EDITOR=vim
 
 if [[ "$OSTYPE" == darwin* ]]; then
   #mac os
-  export PATH="$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/bin:/usr/local/opt/go/libexec/bin:$HOME/go/bin:$HOME/.cabal/bin:$PATH"
+  export PATH="$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/opt/go/libexec/bin:$HOME/go/bin:$HOME/.cabal/bin:/usr/bin:$PATH"
 else
   #linux
-  export PATH="$HOME/bin:$HOME/.rbenv/bin:$HOME/bin/npm/bin:/usr/local/bin:/usr/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/local/bin:$HOME/.cabal/bin:$PATH"
+  export PATH="$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/local/bin:$HOME/.cabal/bin:/usr/bin:$PATH"
 fi
 
 export GOPATH=$HOME/go
