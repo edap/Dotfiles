@@ -57,7 +57,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export PATH="$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/bin:/usr/local/opt/go/libexec/bin:$HOME/go/bin:$HOME/.cabal/bin:$PATH"
 else
   #linux
-  export PATH="$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/local/bin:$HOME/.cabal/bin:$PATH"
+  export PATH="$HOME/bin:$HOME/.rbenv/bin:$HOME/bin/npm/bin:/usr/local/bin:/usr/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/local/bin:$HOME/.cabal/bin:$PATH"
 fi
 
 export GOPATH=$HOME/go
