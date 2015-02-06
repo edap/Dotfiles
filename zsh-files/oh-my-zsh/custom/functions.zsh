@@ -1,6 +1,6 @@
 function cognita.cloud_rake {
     pushd
-    cd /home/maser/dev/cognita/cloud
+    cd ~/cognita/cloud
     bundle exec rake $1
     popd
 }
