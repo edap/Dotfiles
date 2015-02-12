@@ -37,6 +37,11 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
+" TAB settingd for js
+autocmd FileType javascript setlocal tabstop=4
+autocmd FileType javascript setlocal shiftwidth=4
+autocmd FileType javascript setlocal softtabstop=4
+
 " backup settings
 set backupdir=~/.vimtmp/,.
 set directory=~/.vimtmp/,.
