@@ -100,3 +100,6 @@ a", i", a' fanno cose che si possono dedurre da quanto detto sopra
 #multiple cursor
 ctrl n
 ctrl p
+
+#plugin
+shift k su una classe apre la sua documentzione, con esempi annessi. Figo!!

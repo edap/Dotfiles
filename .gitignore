@@ -1,3 +1,4 @@
 *.pyc
 *.swp
-vim-files/vim/bundle/vimproc.vim/autoload
+vim-files/vim/bundle/*
+vim-files/vim/bundle/*
