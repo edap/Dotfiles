@@ -43,6 +43,11 @@ if [[ "$OSTYPE" == linux* ]]; then
     alias pbpaste='xclip -selection clipboard -o'
 fi
 
+if [[ "$OSTYPE" == darwin* ]]; then
+    bindkey '^F' forward-word
+    bindkey '^B' backward-word
+fi
+
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(ssh-agent rails git bundler)
 
