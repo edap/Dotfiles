@@ -60,11 +60,11 @@ export BUNDLER_EDITOR=vim
 if [[ "$OSTYPE" == darwin* ]]; then
   #mac os
   export PATH="$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/opt/go/libexec/bin:$HOME/go/bin:$HOME/.cabal/bin:/usr/bin:$PATH"
+  export ANDROID_HOME=/usr/local/opt/android-sdk
 else
   #linux
   export PATH="$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/local/bin:$HOME/.cabal/bin:/usr/bin:$PATH"
 fi
-
 export GOPATH=$HOME/go
 export VIMRC=$HOME/Dotfiles/vim-files/vim/vimrc
 eval "$(rbenv init -)"
