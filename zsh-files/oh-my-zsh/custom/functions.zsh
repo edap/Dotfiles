@@ -9,6 +9,10 @@ function cognita.ssh {
     cognita.cloud_rake ssh\[$1\]
 }
 
+function rserver {
+  ruby -run -e httpd . -p 5000
+}
+
 function s()
 {
   ~/cognita/cloud/bin/rake -f ~/cognita/cloud/Rakefile ssh\[$1\]

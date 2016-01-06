@@ -48,6 +48,12 @@ if [[ "$OSTYPE" == darwin* ]]; then
     bindkey '^B' backward-word
 fi
 
+# Use clang with c++ 11 lib as default compiler when trying out c++ files
+# from the command line. Xcode already use this library internally
+if [[ "$OSTYPE" == darwin* ]]; then
+  alias clang='clang++ -std=c++11 -stdlib=libc++'
+fi
+
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(ssh-agent rails git bundler)
 
@@ -57,14 +63,21 @@ plugins=(ssh-agent rails git bundler)
 #bundler editor
 export BUNDLER_EDITOR=vim
 
+
 if [[ "$OSTYPE" == darwin* ]]; then
   #mac os
-  export PATH="$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/opt/go/libexec/bin:$HOME/go/bin:$HOME/.cabal/bin:/usr/bin:$PATH"
-  export ANDROID_HOME=/usr/local/opt/android-sdk
+  export PATH="$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/opt/go/libexec/bin:$HOME/go/bin:/usr/bin:$PATH"
+  export ANDROID_HOME=/Library/Android/sdk
 else
   #linux
-  export PATH="$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/local/bin:$HOME/.cabal/bin:/usr/bin:$PATH"
+  export PATH="$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/local/bin:/usr/bin:$PATH"
 fi
+# Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
+export GHC_DOT_APP="/Applications/ghc-7.8.3.app"
+if [ -d "$GHC_DOT_APP" ]; then
+  export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:$HOME/bin/stackage/stack:${PATH}"
+fi
+
 export GOPATH=$HOME/go
 export VIMRC=$HOME/Dotfiles/vim-files/vim/vimrc
 eval "$(rbenv init -)"
