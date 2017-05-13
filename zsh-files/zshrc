@@ -84,4 +84,22 @@ export VIMRC=$HOME/Dotfiles/vim-files/vim/vimrc
 eval "$(rbenv init -)"
 
 
+#asciidoc package needed for ofSite development
+if [[ "$OSTYPE" == darwin* ]]; then
+  export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
+fi
+
+#valid only for java 7
+export BOOT_JVM_OPTIONS="-XX:MaxPermSize=128m -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
+
+# rust autocompletition
+export PATH=$PATH:$HOME/.cargo/bin/racer
+export RUST_SRC_PATH=$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
+
+# from https://github.com/robbyrussell/oh-my-zsh/issues/3807
+# it probably make sense to move all the export path to the bash_profile. TODO
+source ~/.zprofile
 source $ZSH/oh-my-zsh.sh
+
+export NVM_DIR="/Users/da1/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
