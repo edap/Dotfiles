@@ -2,7 +2,11 @@
 ZSH=$HOME/.oh-my-zsh
 
 # themes in ~/.oh-my-zsh/themes/
-ZSH_THEME="agnoster"
+if [ -n "$INSIDE_EMACS" ]; then
+    export ZSH_THEME="rawsyntax"
+else
+    export ZSH_THEME="agnoster"
+fi
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -31,12 +35,14 @@ alias gra='git remote add'
 alias grr='git remote rm'
 alias gpu='git pull'
 alias gcl='git clone'
-alias killrails='kill -INT $(cat tmp/pids/server.pid)'
-alias heute='date +"%Y-%m-%d-%H-%M"'
 alias gctrlz='git reset --hard HEAD@{1}'
 alias glast='git show --pretty="format:" --name-only'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias gitk='gitk --all'
+
+alias cleanxcode='rm -rf ~/Library/Developer/Xcode/DerivedData/*'
+alias killrails='kill -INT $(cat tmp/pids/server.pid)'
+alias heute='date +"%Y-%m-%d-%H-%M"'
 
 if [[ "$OSTYPE" == linux* ]]; then
     alias pbcopy='xclip -selection clipboard'
