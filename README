@@ -1,6 +1,8 @@
 symbolic links
-ln -s ~/Dotfiles/zsh-files/oh-my-zsh/custom/functions.zsh ~/.oh-my-zsh/custom/functions.zshln -s ~/Dotfiles/zsh-files/zshenv ~/.zshenv
-ln -s  ~/Dotfiles/tmux.conf ~/.tmux.conf
+ln -s ~/Dotfiles/zsh-files/oh-my-zsh/custom/functions.zsh ~/.oh-my-zsh/custom/functions.zsh
+ln -s ~/Dotfiles/zsh-files/zshenv ~/.zshenv
+ln -s ~/Dotfiles/zsh-files/zprofile ~/.zprofile
+ln -s ~/Dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/Dotfiles/jshintrc .jshintrc
 ln -s ~/Dotfiles/zsh-files/zshrc .zshrc
 
