@@ -72,7 +72,7 @@ export BUNDLER_EDITOR=vim
 
 if [[ "$OSTYPE" == darwin* ]]; then
   #mac os
-  export PATH="$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/opt/go/libexec/bin:$HOME/go/bin:/usr/bin:$PATH"
+  export PATH="$HOME/bin:$HOME/.npm-global/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/opt/go/libexec/bin:$HOME/go/bin:/usr/bin:$PATH"
   export ANDROID_HOME=/Library/Android/sdk
 else
   #linux
