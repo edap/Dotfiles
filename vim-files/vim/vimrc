@@ -12,6 +12,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-fugitive'
+Plugin 'guns/vim-clojure-static'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'tpope/vim-fireplace'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'rking/ag.vim'
@@ -22,7 +25,6 @@ Plugin 'szw/vim-maximizer'
 Plugin 'kchmck/vim-coffee-script' 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
-Plugin 'thoughtbot/vim-rspec'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'tikhomirov/vim-glsl'
@@ -33,6 +35,17 @@ filetype plugin indent on
 
 " Make vim incompatbile to vi.
 set modelines=0
+
+
+" c++ settings http://www.alexeyshmalko.com/2014/using-vim-as-c-cpp-ide/
+" exrc forces vim to source .vimrc file if it present in working
+" directory, thus providing a place to store project-specific configuration.
+set exrc
+"  This option will restrict usage of some commands in non-default .vimrc
+"  files; commands that write to file or execute shell commands are not allowed
+"  and map commands are displayed.
+set secure
+map <F8> : !clang++ -std=c++11 -stdlib=libc++ % && ./a.out <CR>
 
 " Spellcheck Git commit messages
 autocmd BufRead COMMIT_EDITMSG setlocal spell!
@@ -126,6 +139,10 @@ nnoremap <leader><space> :noh<cr>
 set wrap
 set textwidth=79
 set formatoptions=qrn1
+
+"but do not break lines at 80 on md files
+au BufRead,BufNewFile *.md,*.markdown,*.html setlocal textwidth=0
+
 "set colorcolumn=79
 
 " To  show special characters in Vim
@@ -228,7 +245,7 @@ autocmd BufWinLeave * call clearmatches()
 function! TrimWhiteSpace()
       %s/\s\+$//e
 endfunction
-autocmd BufWritePre *.js,*.hs,*.go,*.rb,*.html,*.coffee :call TrimWhiteSpace()
+autocmd BufWritePre *.js,*.hs,*.go,*.rb,*.html,*.coffee,*.ts :call TrimWhiteSpace()
 
 " =========== END Basic Vim Settings ===========
 
@@ -247,13 +264,15 @@ if has("gui_running")
     set listchars=tab:▸\ ,eol:¬         " Invisibles using the Textmate style
 else
     set t_Co=256
-    colorschem badwolf
+    "colorschem badwolf
     "colorschem torte
     syntax enable
     set background=dark
     "set background=light
     let g:solarized_termcolors=256
-    colorscheme solarized
+    "colorscheme solarized
+
+    colorschem molokai
 endif
 
 " ========== END Gvim Settings ==========
@@ -319,24 +338,34 @@ let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_ruby_rubocop_exec = '/Users/da1/.rbenv/shims/rubocop'
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 
-" Vim-go
-au FileType go nmap <Leader>s <Plug>(go-implements)
-au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
-let g:go_bin_path = expand("~/.gotools")
-let g:go_bin_path = "~/go/bin" 
-" Rspec vim
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
 " vim fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
 nnoremap <silent> <leader>gl :Glog<CR>
+
+" rainbow for clojure
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
