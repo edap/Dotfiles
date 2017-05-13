@@ -1,16 +1,31 @@
-symbolic links
+Software to install:
+
+### ZSH
+- oh-my-zsh
+- Powerline fonts
+
+### VIM
+- Vundle has to be installed manually, https://github.com/gmarik/Vundle.vim
+then, in vim :PluginInstalll will do the rest
+
+### AG
+- https://github.com/ggreer/the_silver_searcher
+
+## JSHINT
+- http://jshint.com/install/
+
+## Spacemacs
+- http://spacemacs.org/
+
+
+Once the software is installed, clone the Dotfiles repo and create these symbolic links. If during the software installation you have created some of these configs file that now you are going to sym link, delete them first.
+
 ln -s ~/Dotfiles/zsh-files/oh-my-zsh/custom/functions.zsh ~/.oh-my-zsh/custom/functions.zsh
 ln -s ~/Dotfiles/zsh-files/zshenv ~/.zshenv
 ln -s ~/Dotfiles/zsh-files/zprofile ~/.zprofile
+ln -s ~/Dotfiles/zsh-files/zshrc .zshrc
 ln -s ~/Dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/Dotfiles/jshintrc .jshintrc
-ln -s ~/Dotfiles/zsh-files/zshrc .zshrc
+ln -s ~/Dotfiles/spacemacs-files/spacemacs ~/.spacemacs
 
 
-To install:
-- oh-my-zsh
-- Vundle has to be installed manually, https://github.com/gmarik/Vundle.vim
-then, in vim :PluginInstalll will do the rest
-- https://github.com/ggreer/the_silver_searcher
-- http://jshint.com/install/
-- Powerline fonts
