@@ -88,8 +88,5 @@ export GOPATH=$HOME/go
 export VIMRC=$HOME/Dotfiles/vim-files/vim/vimrc
 eval "$(rbenv init -)"
 
-# CHROME_BIN variable needed from npm test command in angulare phonegap
-# tutorial
-# export CHROME_BIN=/usr/bin/chromium
 
 source $ZSH/oh-my-zsh.sh
