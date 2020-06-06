@@ -43,6 +43,23 @@ alias gitk='gitk --all'
 alias cleanxcode='rm -rf ~/Library/Developer/Xcode/DerivedData/*'
 alias killrails='kill -INT $(cat tmp/pids/server.pid)'
 alias heute='date +"%Y-%m-%d-%H-%M"'
+alias videopng='ffmpeg -pattern_type glob -i "*.png" -s 1500x1500 -vcodec libx264 -crf 17 -pix_fmt yuv420p test.mp4'
+alias videopng4k='ffmpeg -pattern_type glob -i "*.png" -s 3840x2160 -vcodec libx264 -crf 25 -pix_fmt yuv420p test.mp4'
+alias videopng1920='ffmpeg -pattern_type glob -i "*.png" -s 1920x1080 -vcodec libx264 -crf 25 -pix_fmt yuv420p test1920.mp4'
+alias gv='glslViewer'
+
+
+function video2gif() {
+    if [ "$1" != "" ]
+    then
+	ffmpeg -i $1 -vf scale=320:-1 -r 10 -f image2pipe -vcodec ppm - | convert -delay 5 -loop 0 - output.gif
+    else
+	echo "provide at least a file as argument"
+    fi
+}
+
+#workaround because ubuntu default python version is still 2.7, and renderdoc wants > 3.4
+alias python=python3
 
 if [[ "$OSTYPE" == linux* ]]; then
     alias pbcopy='xclip -selection clipboard'
@@ -91,8 +108,8 @@ fi
 export BOOT_JVM_OPTIONS="-XX:MaxPermSize=128m -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
 
 # rust autocompletition
-export PATH=$PATH:$HOME/.cargo/bin/racer
-export RUST_SRC_PATH=$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
+export PATH="$HOME/.cargo/bin:$PATH"
+#export RUST_SRC_PATH=$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 
 # from https://github.com/robbyrussell/oh-my-zsh/issues/3807
 # it probably make sense to move all the export path to the bash_profile. TODO
@@ -109,3 +126,8 @@ fi
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PYTHONPATH=/usr/local/lib/python3.6/
+
+# glslViewer
+export PATH=$PATH:$HOME/Application/glslViewer/bin/
