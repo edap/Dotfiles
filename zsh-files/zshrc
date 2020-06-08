@@ -131,3 +131,16 @@ export PYTHONPATH=/usr/local/lib/python3.6/
 
 # glslViewer
 export PATH=$PATH:$HOME/Application/glslViewer/bin/
+
+# canvasSketch
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	export CANVAS_SK=/Users/da1/Sources/github/edap/canvasSketches
+        # Mac OSX
+else
+	export CANVAS_SK=/home/dapx/Sources/canvasSketches
+fi
+
+alias sketch-multiple-elements="canvas-sketch --template=$CANVAS_SK/custom_templates/multiple-elements/index.js --html=$CANVAS_SK/custom_templates/multiple-elements/index.html"
+alias sketch-multiple-views="canvas-sketch --template=$CANVAS_SK/custom_templates/multiple-views/index.js --html=$CANVAS_SK/custom_templates/multiple-views/index.html"
+
+
