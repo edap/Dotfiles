@@ -41,6 +41,9 @@ alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset
 alias gitk='gitk --all'
 
 alias cleanxcode='rm -rf ~/Library/Developer/Xcode/DerivedData/*'
+alias videopng='ffmpeg -pattern_type glob -i "*.png" -s 1920x1080 -vcodec libx264 -crf 2 -pix_fmt yuv420p test.mp4'
+alias videopng600='ffmpeg -pattern_type glob -i "*.png" -s 600x600 -vcodec libx264 -crf 2 -pix_fmt yuv420p test.mp4'
+alias videopngh='ffmpeg -pattern_type glob -i "*.png" -s 640x360 -vcodec libx264 -crf 2 -pix_fmt yuv420p test.mp4'
 alias killrails='kill -INT $(cat tmp/pids/server.pid)'
 alias heute='date +"%Y-%m-%d-%H-%M"'
 
@@ -72,7 +75,7 @@ export BUNDLER_EDITOR=vim
 
 if [[ "$OSTYPE" == darwin* ]]; then
   #mac os
-  export PATH="$HOME/bin:$HOME/.npm-global/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/opt/go/libexec/bin:$HOME/go/bin:/usr/bin:$PATH"
+  export PATH="$HOME/bin:$HOME/.npm-global/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/opt/go/libexec/bin:$HOME/go/bin:/usr/bin:/Applications/caddy:$HOME/Sources/github/glslViewer/bin:$PATH"
   export ANDROID_HOME=/Library/Android/sdk
 else
   #linux
@@ -93,7 +96,7 @@ fi
 export BOOT_JVM_OPTIONS="-XX:MaxPermSize=128m -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
 
 # rust autocompletition
-export PATH=$PATH:$HOME/.cargo/bin/racer
+export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH=$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 
 # from https://github.com/robbyrussell/oh-my-zsh/issues/3807
@@ -103,3 +106,11 @@ source $ZSH/oh-my-zsh.sh
 
 export NVM_DIR="/Users/da1/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# vulkan for macOS. Because of nannou
+export VULKAN_SDK="$HOME/.vulkan_sdk/macOS"
+export PATH="$VULKAN_SDK/bin:$PATH"
+export DYLD_LIBRARY_PATH="$VULKAN_SDK/lib:$DYLD_LIBRARY_PATH"
+export VK_ICD_FILENAMES="$VULKAN_SDK/etc/vulkan/icd.d/MoltenVK_icd.json"
+export VK_LAYER_PATH="$VULKAN_SDK/etc/vulkan/explicit_layer.d"
+export SHADERC_LIB_DIR="$VULKAN_SDK/lib"

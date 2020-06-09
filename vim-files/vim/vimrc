@@ -22,13 +22,13 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'szw/vim-maximizer'
-Plugin 'kchmck/vim-coffee-script' 
+Plugin 'kchmck/vim-coffee-script'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'tikhomirov/vim-glsl'
-Plugin 'Valloric/YouCompleteMe'
+Plugin '907th/vim-auto-save'
 call vundle#end()
 
 filetype plugin indent on
@@ -291,6 +291,9 @@ let g:miniBufExplModSelTarget = 1
 
 " Airline fonts
 let g:airline_powerline_fonts=1
+
+" Autosave plugin, enable at startup
+let g:auto_save = 1
 
 " Tab color settings to make it more visible.
 hi MBEChanged ctermfg=white
