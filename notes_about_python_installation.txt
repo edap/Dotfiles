@@ -1,0 +1,8 @@
+On Costanza, python 3 is installed, and pip3 too.
+You have set up the virtualenv with `virtualenv -p /usr/bin/python3 venv/`
+
+
+New python executable in /home/dapx/venv/bin/python3
+Also creating executable in /home/dapx/venv/bin/python
+Installing setuptools, pip, wheel...done.
+

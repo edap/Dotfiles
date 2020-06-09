@@ -46,6 +46,23 @@ alias videopng600='ffmpeg -pattern_type glob -i "*.png" -s 600x600 -vcodec libx2
 alias videopngh='ffmpeg -pattern_type glob -i "*.png" -s 640x360 -vcodec libx264 -crf 2 -pix_fmt yuv420p test.mp4'
 alias killrails='kill -INT $(cat tmp/pids/server.pid)'
 alias heute='date +"%Y-%m-%d-%H-%M"'
+alias videopng='ffmpeg -pattern_type glob -i "*.png" -s 1500x1500 -vcodec libx264 -crf 17 -pix_fmt yuv420p test.mp4'
+alias videopng4k='ffmpeg -pattern_type glob -i "*.png" -s 3840x2160 -vcodec libx264 -crf 25 -pix_fmt yuv420p test.mp4'
+alias videopng1920='ffmpeg -pattern_type glob -i "*.png" -s 1920x1080 -vcodec libx264 -crf 25 -pix_fmt yuv420p test1920.mp4'
+alias gv='glslViewer'
+
+
+function video2gif() {
+    if [ "$1" != "" ]
+    then
+	ffmpeg -i $1 -vf scale=320:-1 -r 10 -f image2pipe -vcodec ppm - | convert -delay 5 -loop 0 - output.gif
+    else
+	echo "provide at least a file as argument"
+    fi
+}
+
+#workaround because ubuntu default python version is still 2.7, and renderdoc wants > 3.4
+alias python=python3
 
 if [[ "$OSTYPE" == linux* ]]; then
     alias pbcopy='xclip -selection clipboard'
@@ -72,20 +89,17 @@ plugins=(ssh-agent rails git bundler)
 #bundler editor
 export BUNDLER_EDITOR=vim
 
-
 if [[ "$OSTYPE" == darwin* ]]; then
   #mac os
   export PATH="$HOME/bin:$HOME/.npm-global/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/opt/go/libexec/bin:$HOME/go/bin:/usr/bin:/Applications/caddy:$HOME/Sources/github/glslViewer/bin:$PATH"
   export ANDROID_HOME=/Library/Android/sdk
 else
   #linux
-  export PATH="$HOME/bin:$HOME/.npm-global/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/local/bin:/usr/bin:$PATH"
+  export PATH="$HOME/bin:$HOME/.npm-global/bin:$HOME/.rbenv/bin:/usr/local/bin:$HOME/local/bin:/usr/bin:$PATH"
 fi
 
-export GOPATH=$HOME/go
 export VIMRC=$HOME/Dotfiles/vim-files/vim/vimrc
 eval "$(rbenv init -)"
-
 
 #asciidoc package needed for ofSite development
 if [[ "$OSTYPE" == darwin* ]]; then
@@ -97,18 +111,29 @@ export BOOT_JVM_OPTIONS="-XX:MaxPermSize=128m -XX:+UseConcMarkSweepGC -XX:+CMSCl
 
 # rust autocompletition
 export PATH="$HOME/.cargo/bin:$PATH"
-export RUST_SRC_PATH=$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  export RUST_SRC_PATH=$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
+fi
 
 # from https://github.com/robbyrussell/oh-my-zsh/issues/3807
 # it probably make sense to move all the export path to the bash_profile. TODO
 source ~/.zprofile
 source $ZSH/oh-my-zsh.sh
 
-export NVM_DIR="/Users/da1/.nvm"
+if [[ "$OSTYPE" == darwin* ]]; then
+  export NVM_DIR="/Users/da1/.nvm"
+fi
+
+if [[ `uname` == 'Linux' ]]; then
+  export NVM_DIR="/home/dapx/.nvm"
+fi
+
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+
+# vulkan for macOS. Because of nannou
 if [[ "$OSTYPE" == darwin* ]]; then
-  # vulkan for macOS. Because of nannou
   export VULKAN_SDK="$HOME/.vulkan_sdk/macOS"
   export PATH="$VULKAN_SDK/bin:$PATH"
   export DYLD_LIBRARY_PATH="$VULKAN_SDK/lib:$DYLD_LIBRARY_PATH"
@@ -116,4 +141,23 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export VK_LAYER_PATH="$VULKAN_SDK/etc/vulkan/explicit_layer.d"
   export SHADERC_LIB_DIR="$VULKAN_SDK/lib"
 fi
+
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PYTHONPATH=/usr/local/lib/python3.6/
+
+# glslViewer
+export PATH=$PATH:$HOME/Application/glslViewer/bin/
+
+# canvasSketch
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	export CANVAS_SK=/Users/da1/Sources/github/edap/canvasSketches
+        # Mac OSX
+else
+	export CANVAS_SK=/home/dapx/Sources/canvasSketches
+fi
+
+alias sketch-multiple-elements="canvas-sketch --template=$CANVAS_SK/custom_templates/multiple-elements/index.js --html=$CANVAS_SK/custom_templates/multiple-elements/index.html"
+alias sketch-multiple-views="canvas-sketch --template=$CANVAS_SK/custom_templates/multiple-views/index.js --html=$CANVAS_SK/custom_templates/multiple-views/index.html"
+
 
