@@ -14,8 +14,6 @@ then, in vim :PluginInstalll will do the rest
 ## JSHINT
 - http://jshint.com/install/
 
-## Spacemacs
-- http://spacemacs.org/
 
 
 Once the software is installed, clone the Dotfiles repo and create these symbolic links. If during the software installation you have created some of these configs file that now you are going to sym link, delete them first.
@@ -24,8 +22,6 @@ ln -s ~/Dotfiles/zsh-files/oh-my-zsh/custom/functions.zsh ~/.oh-my-zsh/custom/fu
 ln -s ~/Dotfiles/zsh-files/zshenv ~/.zshenv
 ln -s ~/Dotfiles/zsh-files/zprofile ~/.zprofile
 ln -s ~/Dotfiles/zsh-files/zshrc .zshrc
-ln -s ~/Dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/Dotfiles/jshintrc .jshintrc
-ln -s ~/Dotfiles/spacemacs-files/spacemacs ~/.spacemacs
 
 
