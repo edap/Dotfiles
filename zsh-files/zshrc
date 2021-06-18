@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-export ZSH_THEME="agnoster"
+export ZSH_THEME="cloud"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -93,7 +93,7 @@ else
   export PATH="$HOME/bin:$HOME/.npm-global/bin:$HOME/.rbenv/bin:/usr/local/bin:$HOME/local/bin:/usr/bin:$PATH"
 fi
 
-export VIMRC=$HOME/Dotfiles/vim-files/vim/vimrc
+export VIMRC=$HOME/.Dotfiles/vim-files/vim/vimrc
 eval "$(rbenv init -)"
 
 #asciidoc package needed for ofSite development
