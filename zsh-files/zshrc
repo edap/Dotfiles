@@ -147,4 +147,5 @@ export PATH=$PATH:$HOME/Application/glslViewer/bin/
 
 alias backup="/bin/bash /home/dapx/Applications/scripts/backup.sh"
 
-
+#helix edito
+export HELIX_RUNTIME=$HOME/Application/helix/runtime
