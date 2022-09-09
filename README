@@ -1,7 +1,7 @@
 Software to install:
 
 ### ZSH
-- oh-my-zsh
+- install oh-my-zsh. Run `omz update` once in a while.
 
 ### VIM
 - Vundle has to be installed manually, https://github.com/gmarik/Vundle.vim

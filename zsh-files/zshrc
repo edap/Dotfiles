@@ -22,7 +22,6 @@ alias gl='git log'
 alias gs='git status'
 alias gd='git diff'
 alias gdc='git diff --cached'
-alias gm='git commit -m'
 alias gma='git commit -am'
 alias gb='git branch'
 alias gc='git checkout'
@@ -56,8 +55,6 @@ function video2gif() {
     fi
 }
 
-#workaround because ubuntu default python version is still 2.7, and renderdoc wants > 3.4
-alias python=python3
 
 if [[ "$OSTYPE" == linux* ]]; then
     alias pbcopy='xclip -selection clipboard'
@@ -75,11 +72,15 @@ if [[ "$OSTYPE" == darwin* ]]; then
   alias clang='clang++ -std=c++11 -stdlib=libc++'
 fi
 
+# Avoid asking password
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ssh-agent#instructions
+zstyle :omz:plugins:ssh-agent identities id_rsa id_rsa_autistici
+
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(ssh-agent rails git bundler)
 
 #java
-#export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
 
 #bundler editor
 export BUNDLER_EDITOR=vim
@@ -143,17 +144,6 @@ export PYTHONPATH=/usr/local/lib/python3.6/
 
 # glslViewer
 export PATH=$PATH:$HOME/Application/glslViewer/bin/
-
-# canvasSketch
-if [[ "$OSTYPE" == "darwin"* ]]; then
-	export CANVAS_SK=/Users/da1/Sources/github/edap/canvasSketches
-        # Mac OSX
-else
-	export CANVAS_SK=/home/dapx/Sources/canvasSketches
-fi
-
-alias sketch-multiple-elements="canvas-sketch --template=$CANVAS_SK/custom_templates/multiple-elements/index.js --html=$CANVAS_SK/custom_templates/multiple-elements/index.html"
-alias sketch-multiple-views="canvas-sketch --template=$CANVAS_SK/custom_templates/multiple-views/index.js --html=$CANVAS_SK/custom_templates/multiple-views/index.html"
 
 alias backup="/bin/bash /home/dapx/Applications/scripts/backup.sh"
 
