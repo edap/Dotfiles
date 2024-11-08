@@ -19,7 +19,7 @@ alias gA='git add -A'
 alias gp='git push'
 alias gfp='git ftp push'
 alias gl='git log'
-alias gs='git status'
+# alias gs='git status'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gma='git commit -am'
@@ -33,6 +33,8 @@ alias gctrlz='git reset --hard HEAD@{1}'
 alias glast='git show --pretty="format:" --name-only'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias gitk='gitk --all'
+# https://stackoverflow.com/questions/72294876/i-enable-webgpu-in-chrome-dev-and-it-still-doesnt-work
+alias chromium='flatpak run org.chromium.Chromium --enable-unsafe-webgpu --use-vulkan=true --test-type'
 
 alias cleanxcode='rm -rf ~/Library/Developer/Xcode/DerivedData/*'
 alias videopng='ffmpeg -pattern_type glob -i "*.png" -s 1920x1080 -vcodec libx264 -crf 2 -pix_fmt yuv420p test.mp4'
@@ -148,4 +150,7 @@ export PATH=$PATH:$HOME/Application/glslViewer/bin/
 alias backup="/bin/bash /home/dapx/Applications/scripts/backup.sh"
 
 #helix edito
-export HELIX_RUNTIME=$HOME/Application/helix/runtime
+export HELIX_RUNTIME=$HOME/Applications/helix/runtime
+
+# unrealn engine linux fix
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
