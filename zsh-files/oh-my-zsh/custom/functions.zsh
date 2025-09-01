@@ -2,6 +2,18 @@ function rserver {
   ruby -run -e httpd . -p 8080
 }
 
+function rlan {
+  local ip_address
+  ip_address=$(ip -4 addr show scope global | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -1)
+  if [ -z "$ip_address" ]; then
+    echo "Error: Could not determine your local IP address."
+    return 1
+  fi
+  echo "Starting Ruby web server on http://$ip_address:8080"
+  ruby -run -e httpd . -p 8080 -b "$ip_address"
+}
+
+
 function freemac()
 {
   FREE_BLOCKS=$(vm_stat | grep free | awk '{ print $3 }' | sed 's/\.//')
