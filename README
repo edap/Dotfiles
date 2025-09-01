@@ -1,7 +1,7 @@
 Software to install:
 
 ### ZSH
-- install oh-my-zsh. Run `omz update` once in a while.
+- install zsh and oh-my-zsh. Run `omz update` once in a while.
 
 ### VIM
 - Vundle has to be installed manually, https://github.com/gmarik/Vundle.vim
@@ -10,16 +10,11 @@ then, in vim :PluginInstalll will do the rest
 ### Ripgrep
 - https://github.com/BurntSushi/ripgrep
 
-## JSHINT
-- http://jshint.com/install/
-
-
 Once the software is installed, clone the Dotfiles repo into ~/.Dotfiles and create these symbolic links. If during the software installation you have created some of these configs file that now you are going to sym link, delete them first.
 
 ln -s ~/.Dotfiles/zsh-files/oh-my-zsh/custom/functions.zsh ~/.oh-my-zsh/custom/functions.zsh
 ln -s ~/.Dotfiles/zsh-files/zshenv ~/.zshenv
 ln -s ~/.Dotfiles/zsh-files/zprofile ~/.zprofile
 ln -s ~/.Dotfiles/zsh-files/zshrc .zshrc
-ln -s ~/.Dotfiles/jshintrc .jshintrc
 
 
